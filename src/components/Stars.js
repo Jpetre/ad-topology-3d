@@ -1,11 +1,8 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef } from "react";
 import { useFrame } from "react-three-fiber";
 import * as THREE from "three/src/Three";
-import StoreContext from '../store/StoreContext';
 
 const Stars = () => {
-  const store = useContext(StoreContext);
-  console.log('store stars', store);
   let group = useRef();
   let theta = 0;
   useFrame(() => {

@@ -13,7 +13,7 @@ const App = () => {
     <div className="App">
       <Canvas>
         <StoreContext.Provider value={store}>
-          <Camera position={[0, 0, 30]} />
+          <Camera />
           <KeyLight brightness={5.6} color="#ffbdf4" />
           <FillLight brightness={2.6} color="#bdefff" />
           <RimLight brightness={54} color="#fff" />

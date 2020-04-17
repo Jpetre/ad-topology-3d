@@ -1,16 +1,18 @@
 import { observable, action, decorate } from 'mobx'
 
 class Store {
-  likesCount = 12;
+  defaultCameraPosition = [0, 0, 30];
+  
+  cameraPosition = [0, 0, 30];
 
-  updateCount = () => {
-      this.likesCount++;
+  setCameraPosition = (position) => {
+    this.cameraPosition = position;
   }
 }
 
 decorate(Store, {
-  likesCount: observable,
-  updateCount: action
+  cameraPosition: observable,
+  setCameraPosition: action
 })
 
 const storeInstance = new Store()

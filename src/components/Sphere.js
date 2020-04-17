@@ -1,14 +1,24 @@
-import React, { useRef, useState, useContext } from "react";
+import React, { useRef, useState, useContext, useEffect } from "react";
 import { observer } from 'mobx-react'
 import StoreContext from '../store/StoreContext';
 
 const Sphere = props => {
   const store = useContext(StoreContext);
-  console.log('store sphere', store.likesCount);
+  console.log('store sphere', store.defaultCameraPosition);
+
+  const { position } = props;
 
   const mesh = useRef();
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    if(active) {
+      store.setCameraPosition([position[0], position[1], position[2] + 10]);
+    } else {
+      store.setCameraPosition(store.defaultCameraPosition)
+    }
+  }, [active, position, store]);
 
   // Rotate mesh every frame, this is outside of React without overhead
   /*useFrame(() => {
