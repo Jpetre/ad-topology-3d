@@ -6,7 +6,8 @@ import Camera from './components/Camera';
 import Sphere from './components/Sphere';
 import Stars from './components/Stars';
 import StoreContext from './store/StoreContext';
-import store from './store/Store'
+import store from './store/Store';
+import Box from './components/Box';
 
 const App = () => {
   return (
@@ -18,6 +19,10 @@ const App = () => {
           <FillLight brightness={2.6} color="#bdefff" />
           <RimLight brightness={54} color="#fff" />
           <Sphere position={[4, 0, 0]} />
+          <Box position={[2, 0, 0]} />
+          <Box position={[6, 0, 0]} />
+          <Box position={[4, 0, 2]} />
+          <Box position={[3, 0, 2]} />
           <Sphere position={[-4, 0, 0]} />
           <Sphere position={[0, 4, -5]} />
           <Stars />
