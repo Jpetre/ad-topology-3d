@@ -13,20 +13,27 @@ const Camera = props => {
     gl
   } = useThree()
 
-  const ref = useRef();
+  const cameraRef = useRef();
+  const orbitControlRef = useRef();
 
   const { setDefaultCamera } = useThree();
 
   // Make the camera known to the system
-  useEffect(() => void setDefaultCamera(ref.current), [setDefaultCamera]);
+  useEffect(() => void setDefaultCamera(cameraRef.current), [setDefaultCamera]);
+  
+  useEffect(() => {
+    if(store.cameraPosition) {
+      console.log('orbitControlRef', orbitControlRef);
+    }
+  }, [store.cameraPosition])
 
   // Update it every frame
-  useFrame(() => ref.current.updateMatrixWorld());
+  useFrame(() => cameraRef.current.updateMatrixWorld());
 
   return (
     <>
-      <perspectiveCamera position={store.cameraPosition} ref={ref} {...props} />
-      <orbitControls args={[camera, gl.domElement]} />
+      <perspectiveCamera position={store.cameraPosition} ref={cameraRef} {...props} />
+      <orbitControls ref={orbitControlRef} args={[camera, gl.domElement]} />
     </>
   );
 };

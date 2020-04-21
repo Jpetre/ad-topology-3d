@@ -15,16 +15,22 @@ const App = () => {
       <Canvas>
         <StoreContext.Provider value={store}>
           <Camera />
-          <KeyLight brightness={5.6} color="#ffbdf4" />
-          <FillLight brightness={2.6} color="#bdefff" />
-          <RimLight brightness={54} color="#fff" />
+          <pointLight distance={60} intensity={2} color="lightblue" />
           <Sphere position={[4, 0, 0]} />
           <Box position={[2, 0, 0]} />
-          <Box position={[6, 0, 0]} />
-          <Box position={[4, 0, 2]} />
+          <Box position={[2, 0, 1]} />
           <Box position={[3, 0, 2]} />
+          <Box position={[4, 0, 2]} />
+          <Box position={[5, 0, 2]} />
+          <Box position={[6, 0, 1]} />
+          <Box position={[6, 0, 0]} />
           <Sphere position={[-4, 0, 0]} />
+          <Box position={[-6, 0, 0]} />
+          <Box position={[-2, 0, 0]} />
+          <Box position={[-4, 0, 2]} />
+          <Box position={[-3, 0, 2]} />
           <Sphere position={[0, 4, -5]} />
+          <Sphere position={[0, -4, 5]} />
           <Stars />
         </StoreContext.Provider>
       </Canvas>

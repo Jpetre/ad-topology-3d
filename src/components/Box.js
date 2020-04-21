@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { useFrame } from 'react-three-fiber'
+import { useFrame, Dom } from 'react-three-fiber'
 
 const Box = (props) => {
   // This reference will give us direct access to the mesh
@@ -15,9 +15,15 @@ const Box = (props) => {
     <mesh
       {...props}
       ref={mesh}
-      scale={[0.2, 0.2, 0.2]}
+      scale={[0.1, 0.1, 0.1]}
       onPointerOver={e => setHover(true)}
       onPointerOut={e => setHover(false)}>
+      {
+        hovered && 
+        <Dom>
+          <div className="panel">Bonjour</div>
+        </Dom>
+      }
       <tetrahedronBufferGeometry attach="geometry" args={[1, 1, 1]} />
       <meshStandardMaterial attach="material" color={hovered ? 'red' : 'white'} />
     </mesh>
