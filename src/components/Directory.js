@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useFrame, Dom } from 'react-three-fiber'
 
-const Box = (props) => {
+const Directory = (props) => {
   // This reference will give us direct access to the mesh
   const mesh = useRef()
   
@@ -21,7 +21,7 @@ const Box = (props) => {
       {
         hovered && 
         <Dom>
-          <div className="panel">Bonjour</div>
+          <div className="panel"><span className="panel_name">{props.name}</span></div>
         </Dom>
       }
       <tetrahedronBufferGeometry attach="geometry" args={[1, 1, 1]} />
@@ -30,4 +30,4 @@ const Box = (props) => {
   )
 }
 
-export default Box
+export default Directory

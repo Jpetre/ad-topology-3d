@@ -1,9 +1,9 @@
 import { observable, action, computed, decorate } from 'mobx'
 
 class Store {
-  defaultCameraPosition = [0, 0, 30];
+  defaultCameraPosition = [0, 0, 20];
   
-  cameraPosition = [0, 0, 30];
+  cameraPosition = [0, 0, 20];
   active = observable.box(null);
 
   setCameraPosition = (position) => {

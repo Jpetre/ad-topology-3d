@@ -24,11 +24,12 @@ const Camera = props => {
   useEffect(() => {
     if(store.cameraPosition) {
       console.log('orbitControlRef', orbitControlRef);
+      orbitControlRef.current.update();
     }
   }, [store.cameraPosition])
 
   // Update it every frame
-  useFrame(() => cameraRef.current.updateMatrixWorld());
+  useFrame(() => cameraRef.current.updateProjectionMatrix());
 
   return (
     <>

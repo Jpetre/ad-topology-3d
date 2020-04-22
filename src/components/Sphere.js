@@ -48,12 +48,9 @@ const Sphere = props => {
         color={hovered ? "red" : "grey"}
       />
       <Suspense fallback={null}>
-        <Text position={[-0.5, -1.5, 0]} children="REACT" />
+        <Text position={[-0.7, -1.5, 0]} children={props.name} />
       </Suspense>
-      {
-        isActive &&
-        <pointLight distance={10} intensity={6} color="red" position={position}/>
-      }
+     
     </mesh>
   );
 };
