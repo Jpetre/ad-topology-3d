@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Sphere from './Sphere'
 import Directory from './Directory'
 
@@ -19,10 +19,12 @@ const Domain = (props) => {
     )
   return (
     <>
-      <Sphere position={position} name={name} />
-      <group>
-        { renderDirectories() }
-      </group>
+      <Suspense fallback={null}>
+        <Sphere position={position} name={name} />
+        <group>
+          { renderDirectories() }
+        </group>
+      </Suspense>
     </>
   )
 }

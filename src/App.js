@@ -61,6 +61,7 @@ const App = () => {
               <Trust from={[-2, -4, 5]} to={[-5, 0, 2]} />
               <Trust from={[6, 0, 0]} to={[5, 5, -2]} />
               <Trust from={[6, 0, 1]} to={[9, 5, -3]} />
+              <Trust from={[-2, 0, 0]} to={[-3, 0, 2]} />
             </group> 
           }
           <Stars />

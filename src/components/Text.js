@@ -12,7 +12,7 @@ const Text = ({ children, vAlign = 'center', hAlign = 'center', size = 1, color 
   return (
     <mesh {...props}>
       <textGeometry attach="geometry" args={[children, config]} />
-      <meshNormalMaterial attach="material" color="red" />
+      <meshNormalMaterial attach="material" />
     </mesh>
   )
 }

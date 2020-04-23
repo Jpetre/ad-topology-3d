@@ -1,11 +1,15 @@
-import React, { useRef, useState, useContext, useEffect, Suspense } from "react";
+import React, { useRef, useState, useContext, useEffect } from "react"
+import { useLoader } from 'react-three-fiber'
 import { observer } from 'mobx-react'
-import StoreContext from '../store/StoreContext';
-import Text from './Text';
+import StoreContext from '../store/StoreContext'
+import Text from './Text'
+import * as THREE from "three/src/Three"
+import img from '../assets/grey_stone.jpg'
 
 const Sphere = props => {
   const store = useContext(StoreContext);
   const { position } = props;
+  const [texture] = useLoader(THREE.TextureLoader, [img])
 
   const mesh = useRef();
   const [hovered, setHover] = useState(false);
@@ -46,15 +50,13 @@ const Sphere = props => {
       rotation={[0, 0, 0]}
     >
       <sphereBufferGeometry attach="geometry" args={[1, 32, 32]} />
-      <meshStandardMaterial
+      <meshStandardMaterial 
         attach="material"
         roughness={0.75} 
-        color={hovered ? "red" : "grey"}
+        color={hovered ? "red" : "white"}
+        map={texture}
       />
-      <Suspense fallback={null}>
-        <Text position={[-0.7, -1.5, 0]} children={props.name} />
-      </Suspense>
-     
+      <Text position={[-0.7, -1.5, 0]} children={props.name} />
     </mesh>
   );
 };
