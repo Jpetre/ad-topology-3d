@@ -55,6 +55,8 @@ const Sphere = props => {
         roughness={0.75} 
         color={hovered ? "red" : "white"}
         map={texture}
+        emissive='lightgrey'
+        emissiveIntensity={0.03}
       />
       <Text position={[-0.7, -1.5, 0]} children={props.name} />
     </mesh>
