@@ -44,7 +44,7 @@ const Sphere = props => {
       <sphereBufferGeometry attach="geometry" args={[1, 32, 32]} />
       <meshStandardMaterial
         attach="material"
-        transparent
+        roughness={0.75} 
         color={hovered ? "red" : "grey"}
       />
       <Suspense fallback={null}>

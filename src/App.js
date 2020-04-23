@@ -14,6 +14,7 @@ const App = () => {
       <Canvas>
         <StoreContext.Provider value={store}>
           <Camera />
+          <ambientLight intensity={0.1} />
           <pointLight distance={60} intensity={2} color="lightblue" />
           <Domain 
             position={[4, 0, 0]}
