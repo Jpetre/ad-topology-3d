@@ -11,7 +11,6 @@ const initialCameraZ = 1000
 
 const Camera = () => {
   const store = useContext(StoreContext)
-  console.log('store', store);
   const cameraRef = useRef()
   const controlsRef = useRef()
   const [hyperAnimFinished, sethyperAnimFinished] = useState(false)
@@ -35,8 +34,8 @@ const Camera = () => {
   // Update it every frame
   useFrame(() => {
     if (camera.position.z > 20 && !hyperAnimFinished) camera.position.z = z.value
+    camera.updateMatrixWorld()
     controlsRef.current.update()
-    cameraRef.current.updateMatrixWorld()
   });
 
   return (

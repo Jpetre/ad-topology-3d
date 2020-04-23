@@ -6,6 +6,7 @@ html,
 body,
 .App,
 #root {
+  position: relative;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -40,4 +41,21 @@ body,
 .panel_name {
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.trustSwitch {
+  position: absolute;
+  z-index: 1000;
+  top: 20px;
+  right: 20px;
+}
+
+.trustSwitch_label {
+  color: white;
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.trustSwitch .ant-switch:not(.ant-switch-checked){
+  background-color: grey
 }

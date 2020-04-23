@@ -1,16 +1,21 @@
-import React from 'react';
-import { Canvas } from "react-three-fiber";
-import './App.css';
-import { KeyLight, FillLight, RimLight } from './components/Light';
-import Camera from './components/Camera';
-import Stars from './components/Stars';
-import StoreContext from './store/StoreContext';
-import store from './store/Store';
+import React, { useState } from 'react'
+import { Canvas } from "react-three-fiber"
+import './App.css'
+import Camera from './components/Camera'
+import Stars from './components/Stars'
+import StoreContext from './store/StoreContext'
+import store from './store/Store'
 import Domain from './components/Domain'
+import Trust from './components/Trust'
+import TrustSwitch from './components/TrustSwitch'
 
 const App = () => {
+  const [showTrusts, setShowTrusts] = useState(false);
   return (
     <div className="App">
+      <div className="trustSwitch">
+        <TrustSwitch showTrusts={showTrusts} onChange={() => setShowTrusts(!showTrusts)} />
+      </div>
       <Canvas>
         <StoreContext.Provider value={store}>
           <Camera />
@@ -46,6 +51,18 @@ const App = () => {
             name='cloud.com' 
             directories={['us.cloud.com', 'fx.cloud.com', 'cn.cloud.com']}
           />
+          {
+            showTrusts &&
+            <group>
+              <Trust from={[-6, 0, 0]} to={[-2, 4, -5]} unknown />
+              <Trust from={[-6, 0, 0]} to={[-9, 5, -3]} />
+              <Trust from={[2, 0, 0]} to={[2, 4, -5]} unknown />
+              <Trust from={[2, 0, 1]} to={[-2, 0, 1]} />
+              <Trust from={[-2, -4, 5]} to={[-5, 0, 2]} />
+              <Trust from={[6, 0, 0]} to={[5, 5, -2]} />
+              <Trust from={[6, 0, 1]} to={[9, 5, -3]} />
+            </group> 
+          }
           <Stars />
         </StoreContext.Provider>
       </Canvas>
