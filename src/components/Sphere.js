@@ -27,11 +27,9 @@ const Sphere = props => {
 
   useEffect(() => {
     if(isActive) {
-      console.log('setActive', position[0], position[1], position[2] + 10)
       store.setCameraPosition([position[0], position[1], position[2] + 10]);
     } else {
       if(!store.activePositions) {
-        console.log('setActive defaultCameraPosition')
         store.setCameraPosition(store.defaultCameraPosition)
       }
       setHover(false)
